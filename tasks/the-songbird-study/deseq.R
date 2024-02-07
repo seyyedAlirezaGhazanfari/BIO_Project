@@ -47,7 +47,7 @@ dds <- DESeqDataSetFromMatrix(countData = data,
 dds <- DESeq(dds, fitType = 'mean')
 
 # Get normalized counts
-normalized_counts <- counts(dds, normalized = TRUE)
 
 # Write results to CSV
-write.csv(normalized_counts, file = output_file, row.names = TRUE)
+dds <- results(dds)
+write.csv(dds, file = output_file, row.names = TRUE)
